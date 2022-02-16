@@ -20,7 +20,7 @@ class CreateTblLayawayProfitsTable extends Migration
             $table->decimal('total_cancel_layaway', 10,2)->nullable();
             $table->timestamps();
 
-            $table->foreign('layaway_id')->references('layaway_id')->on('tbl_layaway');
+            $table->foreign('layaway_id')->references('layaway_id')->on('tbl_layaways');
         });
     }
 

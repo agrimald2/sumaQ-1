@@ -21,7 +21,7 @@ class CreateTblLayawayDetailsTable extends Migration
             $table->integer('sucursals_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('layaway_id')->references('layaway_id')->on('tbl_layaway');
+            $table->foreign('layaway_id')->references('layaway_id')->on('tbl_layaways');
             $table->foreign('customers_id')->references('customers_id')->on('tbl_customers');
             $table->foreign('products_id')->references('products_id')->on('tbl_products');
         });
