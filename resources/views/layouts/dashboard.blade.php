@@ -151,6 +151,13 @@
                                             </a>
                                         </li>
 
+                                        <li class=" ">
+                                            <a href="{{url('/color')}}">
+                                                <i class="fa fa-sitemap"></i>
+                                                <span class="pcoded-mtext"> Colores</span>
+                                            </a>
+                                        </li>
+
                                         <!-- <li>
                                             <a href="{{url('/discount')}}">
                                                 <i class="feather icon-percent"></i>

@@ -73,6 +73,24 @@ Route::get('get_collection', 'CollectionsController@GetCollections');
 Route::post('post_collection', 'CollectionsController@PostCollections');
 Route::post('edit_collection', 'CollectionsController@EditCollections');
 
+/* Colors */
+
+Route::prefix('color')->group(function() {
+	Route::get('/', function() {
+		$name_view = 'COLORES';
+		return view('master_tables.mae_collections', compact('name_view'));
+	});
+
+	Route::get('/create', function() {
+		$name_view = 'COLORES';
+		return view('master_tables.mae_collections', compact('name_view'));
+	});
+});
+
+Route::get('/get_colors', 'ColorController@index');
+Route::post('/post_color', 'ColorController@post');
+Route::post('/destroy_color/{id}', 'ColorController@destroy');
+
 /***Discounts***/
 
 Route::prefix('discount')->group(function () {

@@ -64,6 +64,16 @@ const routes = [
         component: require('./master_tables/mae_collections/edit.vue').default
     },
 
+    /** Color */
+    {
+        path:'/color',
+        component: require('./master_tables/mae_colors/index.vue').default
+    },
+    {
+        path:'/color/create',
+        component: require('./master_tables/mae_colors/create.vue').default
+    },
+
     /***Discount***/
     {
         path:'/discount',
