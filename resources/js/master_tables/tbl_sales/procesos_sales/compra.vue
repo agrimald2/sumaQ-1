@@ -75,9 +75,10 @@
                                                                                 <img :src="data.products.products_image_url ? '/img_products/'+data.products.products_image_url : '/img/logo.jpeg'" style="width: 25%;"/>
                                                                               </td> 
                                                                               <td>
-                                                                                <a>
-                                                                                  Quitar
-                                                                                  <div class="feather icon-trash"></div>
+                                                                                <a @click="removeOrder(index)">
+                                                                                  <button>
+                                                                                    <div class="feather icon-trash"></div> <span>Quitar</span>
+                                                                                  </button>
                                                                                 </a>
                                                                               </td>
                                                                             </tr>
@@ -151,11 +152,12 @@ export default {
 		totalPrice () {
 			var total = 0.0;
 			for (var index = 0; index < this.data.length; index++) {
-                total = total + (this.data[index].products.products_price - (this.data[index].products.discounts_group[0].discounts[0].discounts_porcentaje*this.data[index].products.products_price)/100);
-            }
-            return total;
+        let prodPrice = this.data[index].products.products_price;
+        let discount = 0;//this.data[index].products.discounts_group[0].discounts[0].discounts_porcentaje;
+        total += prodPrice - (discount / 100 * prodPrice);
+      }
+      return total;
 		},
-
   },
 
   methods: {

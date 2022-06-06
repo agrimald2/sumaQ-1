@@ -86,7 +86,7 @@
 																					</div>
 																					<div class="form-group">
 																						<button type="button" class="btn btn-primary" @click="Agregar_Pedido()">
-																							Agregar a Carrito
+																							Agregar al Carrito
 																						</button>
 																					</div>
 																				</div>

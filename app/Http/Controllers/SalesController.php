@@ -63,24 +63,27 @@ class SalesController extends Controller
         $cadena = explode(",", $address_cadena);
         
         $tbl_addresses = tbl_addresses::create([
-            'addresses_first_line' =>  $cadena[0],
-            'addresses_second_line' =>  $cadena[1],
+            'addresses_first_line' =>  count($cadena) > 1 ? $cadena[0] : $address_cadena,
+            'addresses_second_line' =>  count($cadena) > 1 ? $cadena[1] : " ",
             'addresses_reference' =>  $request->addresses_reference,
         ]);
 
-        $tbl_customers = tbl_customers::create([
-            'customers_name' => $request->customers_name,
-            'customers_mail' => $request->customers_mail,
-            'customers_phone' => $request->customers_phone,
-            'addresses_id' => $tbl_addresses->addresses_id,
+        $customer = tbl_customers::query()->where('customers_phone', $request->customers_phone)->first();
 
-        ]);
-
+        if(!$customer)
+        {
+            $customer = tbl_customers::create([
+                'customers_name' => $request->customers_name,
+                'customers_mail' => $request->customers_mail,
+                'customers_phone' => $request->customers_phone,
+                'addresses_id' => $tbl_addresses->addresses_id,
+            ]);
+        }
 
         $tbl_sales = tbl_sales::create([
             'user_id' => $user->id,
             'sucursals_id' => session('sucursal')[0]->sucursals_id,
-            'customers_id' => $tbl_customers->customers_id,
+            'customers_id' => $customer->customers_id,
             'sales_payment_method' => $request->sales_payment_method,
             'sales_payment_date' => $request->sales_payment_date,
             'sales_status' => 0,

@@ -69,7 +69,7 @@
                                                                                             </tr>
                                                                                         </thead>
                                                                                         <tbody>
-                                                                                            <tr v-for="raw in data">
+                                                                                            <tr v-for="(raw, index) in data" :key="index">
                                                                                                 <td>{{ raw.products.products_name }}</td>
                                                                                                 <td>{{ raw.inventories_codigo }}</td>
                                                                                                 <td class="price"> {{ raw.products.discounts_group.length ? (raw.products.products_price - (raw.products.discounts_group[0].discounts[0].discounts_porcentaje*raw.products.products_price)/100) : raw.products.products_price}} </td>
@@ -191,9 +191,11 @@ export default {
 
     computed: {
 		totalPrice () {
-            var total = 0.0;
+			var total = 0.0;
 			for (var index = 0; index < this.data.length; index++) {
-                total = total + (this.data[index].products.products_price - (this.data[index].products.discounts_group[0].discounts[0].discounts_porcentaje*this.data[index].products.products_price)/100);
+                let prodPrice = this.data[index].products.products_price;
+                let discount = 0;//this.data[index].products.discounts_group[0].discounts[0].discounts_porcentaje;
+                total += prodPrice - (discount / 100 * prodPrice);
             }
             return total;
 		},
