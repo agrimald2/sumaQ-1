@@ -91,7 +91,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr v-for="(data, index) in searchInUsers">															
+                                                        <tr v-for="(data, index) in searchInUsers" :key="index">															
 															<td>
 																{{data.products.products_name}}
 															</td>
@@ -122,7 +122,7 @@
 																</a>
 															</td>
 															<td>
-																<a ><button class="btn btn-danger"> <i class="feather icon-trash"></i></button></a>
+																<a @click="Destroy(data.inventories_id)"><button class="btn btn-danger"> <i class="feather icon-trash"></i></button></a>
 																<label class="custom-file-upload" @click="Input(data.inventories_codigo)">
 																	<i class="feather icon-cloud-upload"></i> Subir Imagen
 																</label>
@@ -263,6 +263,13 @@ export default {
 				'products_id' : me.products_id
 			}).then(function(response){
                 console.log(response.data);
+          	});
+		},
+
+		Destroy(e) {
+			let me=this;
+            axios.post('/destroy_inventory/' + e).then(function(response){
+                window.location.reload();
           	});
 		},
 

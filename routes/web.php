@@ -389,6 +389,7 @@ Route::get('/generate_qr_byinventorie/{inventories_codigo}', 'InventoryControlle
 Route::get('/find_by_code_inventory/{codigo}', 'InventoryController@findByInventoryCode');
 Route::post('uploadimage_inventorie', 'InventoryController@UploadImageInventorie');
 Route::post('tranferencia_inventorie', 'InventoryController@TransferenciaInventorie');
+Route::post('/destroy_inventory/{id}', 'InventoryController@DestroyInventory');
 
 Route::get('data_districts', 'DistrictsController@GetDistricts');
 

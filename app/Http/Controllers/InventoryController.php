@@ -141,10 +141,11 @@ class InventoryController extends Controller
         ]);
 
         return $inventario->get();
- 
-
     }
 
-
-
+    public function DestroyInventory($id)
+    {
+        tbl_inventories::destroy($id);
+        return [ "status" => "success", "message" => "Eliminado"];
+    }
 }
