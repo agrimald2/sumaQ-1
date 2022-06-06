@@ -74,7 +74,7 @@
                                               <div class="input-group-prepend">
                                               <span class="input-group-text"  id="basic-addon1">Cargo</span></div>
                                               <select class="form-control" v-model="roles_id">
-                                                  <option v-for="data in data_roles" :value="data.roles_id">{{ data.rol_name }}</option>
+                                                  <option v-for="data in data_roles" :value="data.roles_id" :key="data.roles_id">{{ data.rol_name }}</option>
                                               </select>
                                           </div>
                                     </div>

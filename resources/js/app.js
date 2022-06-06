@@ -15,7 +15,8 @@ const routes = [
         path:'/inicio',
         component: require('./index.vue').default
     },
-/***Category***/
+
+    /***Category***/
     {
         path:'/category',
         component: require('./master_tables/mae_category/index.vue').default
@@ -32,7 +33,7 @@ const routes = [
         component: require('./master_tables/mae_category/edit.vue').default
     },
 
-/***Customer***/
+    /***Customer***/
 
     {
         path:'/customers',
@@ -46,7 +47,7 @@ const routes = [
         component: require('./tbl_procesos/tbl_customers/customer_details.vue').default        
     },
 
-/***Collection***/
+    /***Collection***/
     {
         path:'/collection',
         component: require('./master_tables/mae_collections/index.vue').default
@@ -62,7 +63,8 @@ const routes = [
         name:'collection/edit',
         component: require('./master_tables/mae_collections/edit.vue').default
     },
-/***Discount***/
+
+    /***Discount***/
     {
         path:'/discount',
         component: require('./master_tables/mae_discounts/index.vue').default
@@ -83,7 +85,8 @@ const routes = [
         name:'discount/edit',
         component: require('./master_tables/mae_discounts/edit.vue').default
     },
-/***Material***/
+
+    /***Material***/
     {
         path:'/material',
         component: require('./master_tables/mae_materials/index.vue').default
@@ -99,7 +102,8 @@ const routes = [
         name:'material/edit',
         component: require('./master_tables/mae_materials/edit.vue').default
     },
-/***Sucursal***/
+
+    /***Sucursal***/
     {
         path:'/sucursal',
         component: require('./master_tables/mae_sucursals/index.vue').default
@@ -115,7 +119,7 @@ const routes = [
         component: require('./master_tables/mae_sucursals/edit.vue').default
     },
 
-/***Provider***/
+    /***Provider***/
     {
         path:'/provider',
         component: require('./master_tables/mae_providers/index.vue').default
@@ -144,7 +148,7 @@ const routes = [
         component: require('./master_tables/mae_providers/purchase_orders_edit.vue').default
     },
 
-/***Sales***/
+    /***Sales***/
     {
         path:'/sales/pedidos',
         name:'sales/pedidos',
@@ -171,13 +175,14 @@ const routes = [
         component: require('./master_tables/tbl_sales/details.vue').default
     },
 
-/***SalesReport***/
-{
-    path:'/sales/report',
-    name:'sales/report',
-    component: require('./tbl_procesos/tbl_sales_reports/index.vue').default
-},
-/***Products***/
+    /***SalesReport***/
+    {
+        path:'/sales/report',
+        name:'sales/report',
+        component: require('./tbl_procesos/tbl_sales_reports/index.vue').default
+    },
+
+    /***Products***/
     {
         path:'/products',
         component: require('./tbl_procesos/tbl_products/index.vue').default
@@ -192,7 +197,7 @@ const routes = [
         component: require('./tbl_procesos/tbl_products/edit.vue').default
     },
 
-/***Inventario***/
+    /***Inventario***/
     {
         path:'/inventory',
         component: require('./tbl_procesos/tbl_inventories/index.vue').default
@@ -205,7 +210,8 @@ const routes = [
         path:'/inventory/add/:products_id',
         component: require('./tbl_procesos/tbl_inventories/add.vue').default
     },
-/***Users***/
+
+    /***Users***/
     {
         path:'/user',
         component: require('./master_tables/mae_user/index.vue').default
@@ -220,48 +226,47 @@ const routes = [
         component: require('./master_tables/mae_user/edit.vue').default
     },
 
-/***Layaway***/
-{
-    path:'/layaway/pedidos',
-    name:'layaway/pedidos',
-    component: require('./tbl_procesos/tbl_layaway/procesos_layaway/index.vue').default
-},
-{
-    path:'/layaway/compra',
-    name:'layaway/compra',
-    component: require('./tbl_procesos/tbl_layaway/procesos_layaway/compra.vue').default
-},
-{
-    path:'/layaway/pago',
-    name:'layaway/pago',
-    component: require('./tbl_procesos/tbl_layaway/procesos_layaway/pago.vue').default
-},
-{
-    path:'/layaway/finish_layaway',
-    name:'layaway/finish_layaway',
-    component: require('./tbl_procesos/tbl_layaway/procesos_layaway/finish_layaway.vue').default
-},
-{
-    path:'/layaway/details',
-    name:'layaway/details',
-    component: require('./tbl_procesos/tbl_layaway/details.vue').default
-},
+    /***Layaway***/
+    {
+        path:'/layaway/pedidos',
+        name:'layaway/pedidos',
+        component: require('./tbl_procesos/tbl_layaway/procesos_layaway/index.vue').default
+    },
+    {
+        path:'/layaway/compra',
+        name:'layaway/compra',
+        component: require('./tbl_procesos/tbl_layaway/procesos_layaway/compra.vue').default
+    },
+    {
+        path:'/layaway/pago',
+        name:'layaway/pago',
+        component: require('./tbl_procesos/tbl_layaway/procesos_layaway/pago.vue').default
+    },
+    {
+        path:'/layaway/finish_layaway',
+        name:'layaway/finish_layaway',
+        component: require('./tbl_procesos/tbl_layaway/procesos_layaway/finish_layaway.vue').default
+    },
+    {
+        path:'/layaway/details',
+        name:'layaway/details',
+        component: require('./tbl_procesos/tbl_layaway/details.vue').default
+    },
 
-/***Solicitudes***/
-{
-    path:'/solicitudes',
-    name:'solicitudes',
-    component: require('./tbl_procesos/tbl_solicitudes/index.vue').default
-},
-{
-    path:'/solicitudes/create',
-    component: require('./tbl_procesos/tbl_solicitudes/create.vue').default
-},
-{
-    path:'/solicitante',
-    component: require('./tbl_procesos/tbl_solicitudes/solicitante.vue').default
-},
-
+    /***Solicitudes***/
+    {
+        path:'/solicitudes',
+        name:'solicitudes',
+        component: require('./tbl_procesos/tbl_solicitudes/index.vue').default
+    },
+    {
+        path:'/solicitudes/create',
+        component: require('./tbl_procesos/tbl_solicitudes/create.vue').default
+    },
+    {
+        path:'/solicitante',
+        component: require('./tbl_procesos/tbl_solicitudes/solicitante.vue').default
+    },
 ]
 
 const router = new VueRouter({

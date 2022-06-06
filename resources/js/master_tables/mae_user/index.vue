@@ -59,7 +59,7 @@
                                                     </thead>
                                                     <tbody>
 
-                                                        <tr v-for="(data, index) in searchInUsers">
+                                                        <tr v-for="(data, index) in searchInUsers" :key="index">
                                                             <td>
                                                                 {{data.user.roles.rol_name}}
                                                             </td>
@@ -121,7 +121,7 @@
                                                                                     </li>
                                                                                 <!--Botones anteriores-->
 
-                                                                                    <li v-for="(page,index) in getLinksPages" class="page-item" :class="[page === isCurrentPage ? 'active':'' ]">
+                                                                                    <li v-for="(page,index) in getLinksPages" :key="index" class="page-item" :class="[page === isCurrentPage ? 'active':'' ]">
                                                                                         <span v-if="page === isCurrentPage" class="page-link">{{ page }}</span>
                                                                                         <a v-else class="page-link" href="#" @click.prevent="changePage(page)" >{{page}}</a>
                                                                                     </li>
@@ -296,6 +296,7 @@ export default {
    mounted() {
     	let self = this
     	self.GetUsers();
+        console.log(self.data_users);
   }
   
 };

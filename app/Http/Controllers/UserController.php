@@ -26,7 +26,7 @@ class UserController extends Controller
     public function PostUsers(Request $request)
     {
         $user=User::create([
-            'roles_id' => $request->roles_id, 
+            'role_id' => $request->roles_id, 
             'name' => $request->name, 
             'email' => $request->email, 
             'password' => Hash::make($request->password),
@@ -47,7 +47,7 @@ class UserController extends Controller
 
     public function UpdateUser(Request $request){
         User::where('id', $request['id'])->update([
-            'roles_id' => $request->roles_id, 
+            'role_id' => $request->roles_id, 
             'name' => $request->name, 
             'email' => $request->email,
         ]);

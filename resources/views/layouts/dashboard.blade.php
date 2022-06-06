@@ -179,6 +179,26 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
+                                        <span class="pcoded-mtext">Clover</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li>
+                                            <a href="{{url('/clover/merchants')}}">
+                                                <i class="fa fa-sitemap"></i>
+                                                <span class="pcoded-mtext">Merchants</span>
+                                            </a>                                    
+                                        </li>
+                                        <li>
+                                            <a href="{{url('/clover/pagos')}}">
+                                                <i class="fa fa-sitemap"></i>
+                                                <span class="pcoded-mtext">Clover</span>
+                                            </a>                                    
+                                        </li> 
+                                    </ul>
+                                </li>
                                 <li class="">
                                     <a href="{{url('/provider')}}">
                                         <span class="pcoded-micon"><i class="fa fa-sitemap"></i></span>
