@@ -84,6 +84,7 @@
 															<th>Imagen</th>
 															<th>Material</th>
 															<th>Coleccion</th>
+															<th>Color</th>
 															<th>Tamaño</th>
 															<th>Codigo</th>
 															<th>Generar QR</th>
@@ -107,6 +108,9 @@
 															</td>
 															<td>
 																{{data.products.collection.collections_name}}
+															</td>
+															<td>
+																<span v-if="data.color"> {{data.color.color_name}} </span>
 															</td>
 															<td>
 																{{data.sizes ? data.sizes.medidas: 'No tiene medidas'  }}

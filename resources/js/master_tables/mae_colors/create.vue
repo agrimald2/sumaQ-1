@@ -27,7 +27,7 @@
                         <div class="col-lg-6">
                           <div class="input-group">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"  id="basic-addon1">Nombre de la Coleccion</span>
+                              <span class="input-group-text"  id="basic-addon1">Nombre del color</span>
                             </div>
                             <input type="text"  v-model="color_name" class="form-control">
                           </div>

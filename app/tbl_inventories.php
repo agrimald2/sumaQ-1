@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class tbl_inventories extends Model
 {
     protected $fillable = [
-        'products_id','sucursals_id','inventories_image_url','inventories_codigo','sales_id', 'layaway_id', 'sizes_id','purchase_orders_id','user_id'
+        'products_id','sucursals_id','inventories_image_url','inventories_codigo','sales_id', 'layaway_id', 'sizes_id','purchase_orders_id','user_id', 'color_id'
     ];
 
     protected $primaryKey = "inventories_id";
@@ -31,6 +31,11 @@ class tbl_inventories extends Model
     public function layaway()
     {
         return $this->belongsTo('App\tbl_layaway','layaway_id');
+    }
+
+    public function color()
+    {
+        return $this->belongsTo('App\mae_color', 'color_id');
     }
 
 }

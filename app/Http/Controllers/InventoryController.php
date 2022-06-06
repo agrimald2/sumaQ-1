@@ -66,7 +66,7 @@ class InventoryController extends Controller
         $listainventory = tbl_inventories::with(['products' => function($query) {
                                     return $query->with(['collection', 'material', 'discountsGroup']);
                                 }])
-                                ->with(['sizes', 'sales', 'layaway'])
+                                ->with(['sizes', 'sales', 'layaway', 'color'])
                                 ->where('products_id', $products_id)
                                 ->where('sucursals_id', session('sucursal')[0]->sucursals_id)
                                 ->orderBy('inventories_id')
@@ -96,6 +96,7 @@ class InventoryController extends Controller
                     'sucursals_id' => session('sucursal')[0]->sucursals_id,
                     'inventories_codigo' =>Str::random(4),
                     'sizes_id' => $size->sizes_id,
+                    'color_id' => $value['color'],
                     'user_id' => $user->id
                 ]);
             }

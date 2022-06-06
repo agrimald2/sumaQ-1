@@ -18,6 +18,7 @@ class CreateTblInventoriesTable extends Migration
             $table->integer('products_id')->unsigned();
             $table->integer('sucursals_id')->unsigned()->nullable();
             $table->integer('sizes_id')->unsigned()->nullable();
+            $table->integer('color_id')->unsigned()->nullable();
             $table->string('inventories_image_url')->nullable();
             $table->string('inventories_codigo')->nullable();
             $table->integer('sales_id')->unsigned()->nullable();

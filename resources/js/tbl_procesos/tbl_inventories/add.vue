@@ -58,7 +58,7 @@
 												</div>
                                             </div>
                                             <div class="col-lg-12">
-                                                <div class="row" v-for="(inp, index) in inputs_add">
+                                                <div class="row" v-for="(inp, index) in inputs_add" :key="index">
                                                     <div class="col-lg-4" >
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
@@ -71,6 +71,14 @@
                                                             <div class="input-group-prepend">
                                                             <span class="input-group-text"  id="basic-addon1">Medidas</span></div>
                                                             <input type="text" class="form-control" v-model="inp.medidas">
+                                                        </div>
+                                                    </div>                                                    <div class="col-lg-4">
+                                                    <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text"  id="basic-addon1">Colores</span></div>
+                                                            <select type="text" class="form-control" v-model="inp.color"> 
+                                                                <option v-for="colorOpt in color_options" :key="colorOpt.color_id" :value="colorOpt.color_id"> {{ colorOpt.color_name }} </option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
@@ -96,22 +104,21 @@
 
 
 <script>
-
 export default {
-
     data:function(){
         return {
-            inputs_add:[{ cantidad:'', medidas:'',}],
+            color_options: [],
+            inputs_add:[{ cantidad:'', medidas:'', color:null}],
 			products_id: this.$route.params.products_id,
             data_products:[],
             cantidad:'',
             medidas:'',
+            color: null,
         }
     },
 
 
     methods:{
-
         getDetailsInventory(){
               let me=this;
 			  Swal.fire({
@@ -128,6 +135,13 @@ export default {
 				swal.close();
                 console.log(me.data_inventory, me.data_products);
           });
+        },
+
+        GetColors() {
+            let self = this;
+            axios.get('/get_colors').then(function(response) {
+                self.color_options = response.data;
+            });
         },
 
         GuardarInventario(){
@@ -153,15 +167,14 @@ export default {
         removeOrder(x) {
             this.inputs_add.splice(x, 1);
         },
-
     },
 
     mounted() {
         let self = this
         setTimeout(function(){
             self.getDetailsInventory();
-        },2000);
-    }
-  
+            self.GetColors();
+        }, 2000);
+    },  
 };
 </script>
